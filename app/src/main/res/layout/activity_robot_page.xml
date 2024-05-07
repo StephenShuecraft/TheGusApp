@@ -57,7 +57,7 @@
         android:layout_width="179dp"
         android:layout_height="397dp"
         android:adjustViewBounds="true"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.518"
@@ -115,7 +115,7 @@
         android:id="@+id/madHigh"
         android:layout_width="179dp"
         android:layout_height="397dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.518"
@@ -126,15 +126,15 @@
 
     <ImageView
         android:id="@+id/madHighTalk"
-        android:layout_width="176dp"
+        android:layout_width="208dp"
         android:layout_height="397dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/BottomBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52"
+        app:layout_constraintVertical_bias="0.56"
         app:srcCompat="@drawable/madhigtalk" />
 
     <ImageView
@@ -173,7 +173,7 @@
         android:id="@+id/sadHigh"
         android:layout_width="179dp"
         android:layout_height="397dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.518"
@@ -185,14 +185,14 @@
     <ImageView
         android:id="@+id/sadHighTalk"
         android:layout_width="176dp"
-        android:layout_height="397dp"
-        android:visibility="gone"
+        android:layout_height="404dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/BottomBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52"
+        app:layout_constraintVertical_bias="0.548"
         app:srcCompat="@drawable/sadhigtalk" />
 
     <ImageView
@@ -229,16 +229,16 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/BottomBar"
-        android:layout_width="394dp"
-        android:layout_height="73dp"
+        android:layout_width="410dp"
+        android:layout_height="77dp"
         android:layout_gravity="bottom"
         app:backgroundTint="#1664A3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.919"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="BottomAppBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
