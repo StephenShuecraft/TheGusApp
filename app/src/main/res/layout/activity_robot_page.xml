@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/robotView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2196F3"
+    tools:context=".RobotPage">
+
+    <TextView
+        android:id="@+id/gusTalking"
+        android:layout_width="394dp"
+        android:layout_height="133dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Hello my name is GUS"
+        android:textAlignment="center"
+        android:textColor="#89FF04"
+        android:textSize="24sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/norLow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.026"
+        tools:text="Hello my name is GUS" />
+
+    <Button
+        android:id="@+id/taskView"
+        android:layout_width="126dp"
+        android:layout_height="52dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Tasks"
+        app:layout_constraintBottom_toBottomOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="@+id/talkButton"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="@+id/talkButton"
+        app:layout_constraintTop_toTopOf="@+id/talkButton"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="126dp"
+        android:layout_height="52dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Talk"
+        app:layout_constraintBottom_toBottomOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="@+id/talkButton"
+        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintStart_toStartOf="@+id/talkButton"
+        app:layout_constraintTop_toTopOf="@+id/talkButton"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <ImageView
+        android:id="@+id/norHigh"
+        android:layout_width="179dp"
+        android:layout_height="397dp"
+        android:adjustViewBounds="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.422"
+        app:srcCompat="@drawable/norhig" />
+
+    <ImageView
+        android:id="@+id/norHighTalk"
+        android:layout_width="176dp"
+        android:layout_height="397dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52"
+        app:srcCompat="@drawable/norhigtalk" />
+
+    <ImageView
+        android:id="@+id/norMid"
+        android:layout_width="158dp"
+        android:layout_height="374dp"
+        android:layout_marginTop="216dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/normid" />
+
+    <ImageView
+        android:id="@+id/norLow"
+        android:layout_width="187dp"
+        android:layout_height="354dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/norlow" />
+
+    <ImageView
+        android:id="@+id/norLowTalk"
+        android:layout_width="187dp"
+        android:layout_height="354dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/norlowtalk" />
+
+    <ImageView
+        android:id="@+id/madHigh"
+        android:layout_width="179dp"
+        android:layout_height="397dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.422"
+        app:srcCompat="@drawable/madhig" />
+
+    <ImageView
+        android:id="@+id/madHighTalk"
+        android:layout_width="176dp"
+        android:layout_height="397dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52"
+        app:srcCompat="@drawable/madhigtalk" />
+
+    <ImageView
+        android:id="@+id/madMid"
+        android:layout_width="158dp"
+        android:layout_height="374dp"
+        android:layout_marginTop="216dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/madmid" />
+
+    <ImageView
+        android:id="@+id/madLow"
+        android:layout_width="187dp"
+        android:layout_height="354dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/madlow" />
+
+    <ImageView
+        android:id="@+id/madLowTalk"
+        android:layout_width="187dp"
+        android:layout_height="354dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/madlowtalk" />
+
+    <ImageView
+        android:id="@+id/sadHigh"
+        android:layout_width="179dp"
+        android:layout_height="397dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.422"
+        app:srcCompat="@drawable/sadhig" />
+
+    <ImageView
+        android:id="@+id/sadHighTalk"
+        android:layout_width="176dp"
+        android:layout_height="397dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52"
+        app:srcCompat="@drawable/sadhigtalk" />
+
+    <ImageView
+        android:id="@+id/sadMid"
+        android:layout_width="158dp"
+        android:layout_height="374dp"
+        android:layout_marginTop="216dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sadmid" />
+
+    <ImageView
+        android:id="@+id/sadLow"
+        android:layout_width="187dp"
+        android:layout_height="354dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/sadlow" />
+
+    <ImageView
+        android:id="@+id/sadLowTalk"
+        android:layout_width="187dp"
+        android:layout_height="354dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/sadlowtalk" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/talkButton"
+        android:layout_width="394dp"
+        android:layout_height="73dp"
+        android:layout_gravity="bottom"
+        app:backgroundTint="#1664A3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="BottomAppBar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
