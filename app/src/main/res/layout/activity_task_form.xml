@@ -32,7 +32,7 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textColorLink="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintBottom_toTopOf="@+id/BottomBar"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.563"
         tools:layout_editor_absoluteX="232dp" />
@@ -53,7 +53,7 @@
         app:layout_constraintVertical_bias="0.568" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/talkButton"
+        android:id="@+id/BottomBar"
         android:layout_width="412dp"
         android:layout_height="73dp"
         android:layout_gravity="bottom"
@@ -92,7 +92,7 @@
         android:inputType="text"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/talkButton"
+        app:layout_constraintBottom_toTopOf="@+id/BottomBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -121,10 +121,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/aldrich"
         android:text="Create"
-        app:layout_constraintBottom_toBottomOf="@+id/talkButton"
-        app:layout_constraintEnd_toEndOf="@+id/talkButton"
-        app:layout_constraintStart_toStartOf="@+id/talkButton"
-        app:layout_constraintTop_toTopOf="@+id/talkButton" />
+        app:layout_constraintBottom_toBottomOf="@+id/BottomBar"
+        app:layout_constraintEnd_toEndOf="@+id/BottomBar"
+        app:layout_constraintStart_toStartOf="@+id/BottomBar"
+        app:layout_constraintTop_toTopOf="@+id/BottomBar" />
 
     <EditText
         android:id="@+id/editTextTime"

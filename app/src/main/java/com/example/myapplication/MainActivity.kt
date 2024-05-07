@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var btnNext = findViewById<Button>(R.id.Submit)
+        val btnNext = findViewById<Button>(R.id.Submit)
 
         btnNext.setOnClickListener{
             val intent = Intent(this, RobotPage::class.java)
