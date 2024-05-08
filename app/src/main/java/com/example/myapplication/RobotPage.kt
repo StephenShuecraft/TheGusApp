@@ -19,6 +19,7 @@ class RobotPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_robot_page)
 
+        val userName = intent.getStringExtra("USER_KEY")
         val database = FirebaseDatabase.getInstance()
         val usersRef = database.getReference("userData")
 
@@ -28,7 +29,7 @@ class RobotPage : AppCompatActivity() {
                 var found = false
                 for (userSnapshot in dataSnapshot.children) {
                     val name = userSnapshot.child("name").getValue(String::class.java)
-                    if (name == "Stephen") {
+                    if (name == userName) {
                         found = true
                         val option = userSnapshot.child("option").getValue(String::class.java)
                         initializeViews(option, true) // Assuming taskIncomplete is true for demonstration

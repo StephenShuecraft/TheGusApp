@@ -73,10 +73,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/BottomBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.697"
+        app:layout_constraintVertical_bias="0.548"
         app:srcCompat="@drawable/norhigtalk" />
 
     <ImageView
