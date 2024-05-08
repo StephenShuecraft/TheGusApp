@@ -7,18 +7,18 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import com.google.firebase.database.FirebaseDatabase
 import android.widget.Toast
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.DatabaseReference
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //initializing database
-        val database = FirebaseDatabase.getInstance()
-        val ref = database.getReference("userData")
 
         val USER = findViewById<EditText>(R.id.USER)
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
@@ -29,32 +29,57 @@ class MainActivity : AppCompatActivity() {
             val selectedRadioButtonId = radioGroup.checkedRadioButtonId
             // Validate inputs
             if (userName.isEmpty() || selectedRadioButtonId == -1) {
-                // Show toast message when any field is empty
-                Toast.makeText(this, "Data is required", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Both fields required", Toast.LENGTH_SHORT).show()
             } else {
-                // Handle the selection of radio button
-                val radioButton = findViewById<RadioButton>(selectedRadioButtonId)
-                val option = radioButton.text.toString()
-
                 // Initialize Firebase Database
                 val database = FirebaseDatabase.getInstance()
                 val ref = database.getReference("userData")
-                val userId = ref.push().key
 
-                val user = User(userName, option)
-                userId?.let {
-                    ref.child(it).setValue(user).addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            val intent = Intent(this, RobotPage::class.java)
-                            startActivity(intent)
-                        } else {
-                            Toast.makeText(this, "Failed to send data", Toast.LENGTH_SHORT).show()
+                // Query Firebase to see if username already exists
+                ref.orderByChild("name").equalTo(userName)
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            if (snapshot.exists()) {
+                                // Username already exists
+                                Toast.makeText(this@MainActivity, "Logging in", Toast.LENGTH_SHORT)
+                                    .show()
+                                // Corrected Intent context
+                                val intent = Intent(this@MainActivity, RobotPage::class.java)
+                                startActivity(intent)
+                            } else {
+                                // Username does not exist, proceed to create user
+                                createUser(userName, ref, selectedRadioButtonId)
+                            }
                         }
-                    }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            Toast.makeText(
+                                this@MainActivity,
+                                "Failed to check username: ${error.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    })
+            }
+        }
+    }
+
+    private fun createUser(userName: String, ref: DatabaseReference, selectedRadioButtonId: Int) {
+        val radioButton = findViewById<RadioButton>(selectedRadioButtonId)
+        val option = radioButton.text.toString()
+        val userId = ref.push().key
+        val user = User(userName, option)
+        userId?.let {
+            ref.child(it).setValue(user).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    val intent = Intent(this@MainActivity, RobotPage::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this@MainActivity, "Failed to send data", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         }
     }
 }
-
 data class User(val name: String, val option: String)
