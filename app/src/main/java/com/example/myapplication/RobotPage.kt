@@ -1,16 +1,17 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
-import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.os.CountDownTimer
+import android.util.Log
+import android.view.View
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class RobotPage : AppCompatActivity() {
@@ -18,11 +19,10 @@ class RobotPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_robot_page)
 
-        var taskIncomplete: Boolean = true
-
         val database = FirebaseDatabase.getInstance()
         val usersRef = database.getReference("userData")
 
+        // Set up Firebase listeners to handle user data
         usersRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 var found = false
@@ -31,21 +31,23 @@ class RobotPage : AppCompatActivity() {
                     if (name == "Stephen") {
                         found = true
                         val option = userSnapshot.child("option").getValue(String::class.java)
-                        initializeViews(option, taskIncomplete)
+                        initializeViews(option, true) // Assuming taskIncomplete is true for demonstration
                         break // Exit loop once the desired user is found
                     }
                 }
                 if (!found) {
                     Log.d("Database", "No matching documents for user Stephen.")
-                    initializeViews(null, false)  // Default to no mood if no document found
+                    initializeViews(null, false) // Default to no mood if no document found
                 }
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
                 Log.w("Database", "Failed to read value.", databaseError.toException())
-                initializeViews(null, false)  // Default to no mood on failure
+                initializeViews(null, false) // Default to no mood on failure
             }
         })
+
+        setupTaskButton()
     }
 
     private fun initializeViews(option: String?, taskIncomplete: Boolean) {
@@ -54,13 +56,10 @@ class RobotPage : AppCompatActivity() {
         val gusTalking = findViewById<TextView>(R.id.gusTalking)
 
         // Determine the mood based on taskIncomplete and option
-        val isMad = taskIncomplete && option == "Scolding"
-        val isSad = taskIncomplete && option == "Guilt Trip"
-
-        if (isMad) {
+        if (taskIncomplete && option == "Scolding") {
             nor = findViewById<ImageView>(R.id.madHigh)
             norTalk = findViewById<ImageView>(R.id.madHighTalk)
-        } else if (isSad) {
+        } else if (taskIncomplete && option == "Guilt Trip") {
             nor = findViewById<ImageView>(R.id.sadHigh)
             norTalk = findViewById<ImageView>(R.id.sadHighTalk)
         } else {
@@ -69,7 +68,7 @@ class RobotPage : AppCompatActivity() {
         }
         nor.visibility = View.VISIBLE
 
-        setUpButtonActions(nor, norTalk, gusTalking, if (isMad) roasts else if (isSad) guiltTrips else defaultPhrases)
+        setUpButtonActions(nor, norTalk, gusTalking, if (taskIncomplete && option == "Scolding") roasts else if (taskIncomplete && option == "Guilt Trip") guiltTrips else defaultPhrases)
     }
 
     private fun setUpButtonActions(nor: ImageView, norTalk: ImageView, gusTalking: TextView, messages: Array<String>) {
@@ -105,8 +104,16 @@ class RobotPage : AppCompatActivity() {
             gusTalking.text = randomMessage
         }
     }
+
+    private fun setupTaskButton() {
+        val taskButton = findViewById<Button>(R.id.taskView)
+        taskButton.setOnClickListener {
+            val intent = Intent(this, TaskList::class.java)
+            startActivity(intent)
+        }
+    }
+
     companion object {
-        // Roast messages array
         val roasts = arrayOf(
             "Looks like your task completion is as empty as your promises",
             "You’re setting a world record for the longest delay on a simple task",
@@ -120,7 +127,6 @@ class RobotPage : AppCompatActivity() {
             "I've seen better commitment from a placeholder"
         )
 
-        // Default conversational phrases array
         val defaultPhrases = arrayOf(
             "Hello, my name is GUS!",
             "How are you today?",
@@ -131,10 +137,9 @@ class RobotPage : AppCompatActivity() {
             "Thank you for your time that you spend on your tasks!",
             "Have a great day!",
             "If you need anything, just ask I can't really help but I will try",
-            "I'm here to motovate you!"
+            "I'm here to motivate you!"
         )
 
-        // Guilt trip messages array
         val guiltTrips = arrayOf(
             "I guess we know who doesn't follow through on their promises",
             "Everyone else managed to find the time. Just saying",
