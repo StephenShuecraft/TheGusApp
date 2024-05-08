@@ -1,2 +1,2 @@
 # TheGusApp
-This is a Great App
+This app provides an accountability buddy known as GUS (Get Up and Succeed)

@@ -6,11 +6,20 @@ import android.os.CountDownTimer
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.content.Intent
 
 class RobotPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_robot_page)
+
+        // takes user to task list on Task Button press
+        val taskButton = findViewById<Button>(R.id.taskView)
+        taskButton.setOnClickListener {
+            // Create an Intent to start TaskListActivity
+            val intent = Intent(this, TaskList::class.java)
+            startActivity(intent)
+        }
 
         var isMad: Boolean = false
         var isSad: Boolean = true

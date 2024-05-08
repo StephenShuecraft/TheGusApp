@@ -6,23 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".TaskList">
 
+
     <Button
         android:id="@+id/button4"
         android:layout_width="189dp"
         android:layout_height="45dp"
         android:text="GUS"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="230dp" />
-
+        app:layout_constraintVertical_bias="0.953" />
 
     <TableLayout
         android:id="@+id/tableLayout2"
-        android:layout_width="366dp"
-        android:layout_height="648dp"
+        android:layout_width="373dp"
+        android:layout_height="518dp"
         android:stretchColumns="1"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="-14dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075">
 
         <TableRow
             android:layout_width="match_parent"
@@ -89,13 +96,15 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="189dp"
-        android:layout_height="45dp"
-        android:text="New Task "
+        android:id="@+id/CreateTaskBut"
+        android:layout_width="191dp"
+        android:layout_height="43dp"
+        android:text="Create Task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
