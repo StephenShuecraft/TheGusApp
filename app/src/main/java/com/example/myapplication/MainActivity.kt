@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                                 Toast.makeText(this@MainActivity, "Logging in", Toast.LENGTH_SHORT)
                                     .show()
                                 // Corrected Intent context
-                                val intent = Intent(this@MainActivity, RobotPage::class.java)
+                                val intent = Intent(this@MainActivity, RobotPage::class.java).apply {putExtra("USER_KEY", userName)}
                                 startActivity(intent)
                             } else {
                                 // Username does not exist, proceed to create user
@@ -72,8 +72,7 @@ class MainActivity : AppCompatActivity() {
         userId?.let {
             ref.child(it).setValue(user).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    val intent = Intent(this@MainActivity, RobotPage::class.java).apply {
-                        putExtra("USER_KEY", userName)}
+                    val intent = Intent(this@MainActivity, RobotPage::class.java).apply {putExtra("USER_KEY", userName)}
                     startActivity(intent)
                 } else {
                     Toast.makeText(this@MainActivity, "Failed to send data", Toast.LENGTH_SHORT)

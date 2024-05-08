@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,6 +23,12 @@ class RobotPage : AppCompatActivity() {
         val userName = intent.getStringExtra("USER_KEY")
         val database = FirebaseDatabase.getInstance()
         val usersRef = database.getReference("userData")
+        // Assuming this code is inside an Activity
+        // Assuming this code is inside an Activity
+
+
+
+
 
         // Set up Firebase listeners to handle user data
         usersRef.addValueEventListener(object : ValueEventListener {
