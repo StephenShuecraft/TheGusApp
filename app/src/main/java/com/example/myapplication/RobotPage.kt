@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
-import android.widget.Toast
+
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -116,7 +116,8 @@ class RobotPage : AppCompatActivity() {
     private fun setupTaskButton() {
         val taskButton = findViewById<Button>(R.id.taskView)
         taskButton.setOnClickListener {
-            val intent = Intent(this, TaskList::class.java)
+            val userName = intent.getStringExtra("USER_KEY")
+            val intent = Intent(this, TaskList::class.java).apply {putExtra("USER_KEY", userName)}
             startActivity(intent)
         }
     }
